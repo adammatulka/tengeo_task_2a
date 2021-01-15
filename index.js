@@ -2,10 +2,13 @@ const Koa = require('koa');
 const app = new Koa();
 var moment = require('moment');
 
-const today = moment().format('MMMM Do YYYY, h:mm:ss a');
+
 
 app.use(async ctx => {
+  moment.locale();
+  const today = moment().format('LLLL'); 
   ctx.body = today;
 });
 
 app.listen(3000);
+
